@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-5xl mx-auto mt-10 p-6 bg-white shadow rounded">
+    <h1 class="text-2xl font-bold mb-6">Search Results for "{{ query }}"</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for profile in results %}
+      <div class="p-4 border rounded shadow hover:bg-gray-50">
+        <div class="flex items-center space-x-4">
+          <img src="{{ profile.profile_image.url }}" class="w-12 h-12 rounded-full">
+          <div>
+            <h2 class="font-semibold">{{ profile.user.username }}</h2>
+            <p class="text-gray-600">{{ profile.skills }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
+{% endblock %}

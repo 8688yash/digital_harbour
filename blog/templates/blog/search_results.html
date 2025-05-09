@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+{% block title %}Search Results{% endblock %}
+{% block content %}
+  <h2 class="text-2xl font-bold mb-4">Search Results for "{{ query }}"</h2>
+  {% if blogs %}
+    <ul class="space-y-4">
+      {% for blog in blogs %}
+        <li class="bg-slate-800 p-4 rounded shadow">
+          <h3 class="text-xl text-cyan-300">{{ blog.title }}</h3>
+          <p class="text-sm text-gray-400">{{ blog.created_at|date:"M d, Y" }}</p>
+          <a href="{% url 'view_pdf' blog.slug %}" class="text-indigo-400 underline">View Blog</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="text-gray-400">No matching results found.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+
+
+{% block title %}Blog Library{% endblock %}
+
+{% block content %}
+
+
+
+<div class="p-6 bg-white rounded-xl shadow-xl w-full max-w-2xl mx-auto mt-10">
+    <h1 class="text-2xl font-bold mb-4">Submit Your Whitepaper</h1>
+    <form method="post" enctype="multipart/form-data" class="space-y-4">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700 transition">Submit</button>
+    </form>
+  </div>
+ 
+{% endblock %}

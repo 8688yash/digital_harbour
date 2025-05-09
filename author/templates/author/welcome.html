@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="max-w-4xl mx-auto p-10 bg-gradient-to-br from-white to-blue-50 shadow-xl rounded-xl text-gray-800">
+  <h2 class="text-3xl font-bold text-blue-700 mb-4">Welcome to the Digital Harbour Author Panel</h2>
+  <p class="text-lg mb-4">🚀 As an author, you can share your creativity with the world!</p>
+  <ul class="list-disc list-inside space-y-2 text-md">
+    <li>📄 Upload and manage your articles for review.</li>
+    <li>📚 Publish full-length books with custom covers.</li>
+    <li>🎨 Include AI-generated or hand-drawn images.</li>
+    <li>🔍 Track article status and get notified upon publication.</li>
+    <li>👨‍💻 Access analytics and feedback from readers.</li>
+  </ul>
+  <div class="mt-6 flex gap-4">
+    <a href="{% url 'dashboard' %}" class="bg-blue-600 text-white px-5 py-2 rounded-md hover:bg-blue-700">Continue to Dashboard</a>
+    <a href="{% url 'login' %}" class="bg-gray-200 text-blue-700 px-5 py-2 rounded-md hover:bg-gray-300">Login</a>
+  </div>
+</div>
+{% endblock %}

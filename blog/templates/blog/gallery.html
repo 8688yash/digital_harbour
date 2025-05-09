@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1 class="text-3xl font-bold text-center my-6">Source Gallery</h1>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 px-6">
+    {% for image in images %}
+      <div class="bg-white p-2 shadow rounded">
+        <img src="{{ image.image.url }}" alt="{{ image.title }}" class="w-full h-auto">
+        <p class="text-center mt-2 text-sm text-gray-600">{{ image.title }}</p>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

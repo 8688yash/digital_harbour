@@ -1,0 +1,355 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+
+{% block content %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url("{% static 'blog/images/article-bg.png' %}") no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff20;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .form-label {
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-input,
+  .form-textarea,
+  .form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.75rem;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    transition: all 0.3s ease;
+  }
+
+  .form-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #f09b41;
+    margin-bottom: 2rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: linear-gradient(to right, #6366f1, #8b5cf6);
+    color: white;
+    font-weight: bold;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.1rem;
+    transition: transform 0.2s ease, background 0.3s ease;
+  }
+
+  .submit-btn:hover {
+    transform: scale(1.03);
+    background: linear-gradient(to right, #4f46e5, #7c3aed);
+  }
+
+  .instruction-box {
+    background: linear-gradient(135deg, #db670898, #0f0db5);
+    color: #f0fdf4;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .instruction-box ul {
+    list-style: disc inside;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .publish-box {
+    background: linear-gradient(to bottom right, #6514a7, #c67068);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    color: #f8fafc;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .publish-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .publish-box img {
+    height: 100px;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+  }
+
+  .publish-box h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .publish-box p {
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+</style>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: url("{% static 'blog/images/article-bg.png' %}") no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fbbf24;
+  }
+
+  .section-subtext {
+    font-size: 1.1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #e5e7eb;
+  }
+
+  .dashboard-step {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid #6366f1;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  }
+
+  .nav-btn {
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    color: white;
+    font-weight: 600;
+    border-radius: 9999px;
+    margin: 0.5rem;
+    transition: background 0.3s ease;
+  }
+
+  .nav-btn:hover {
+    background: linear-gradient(to right, #2563eb, #7e22ce);
+  }
+</style>
+
+<!-- Hero Section -->
+<div class=" bg-black bg-opacity-60 backdrop-blur-md p-10 rounded-3xl shadow-2xl  mb-8">
+  <div class="text-center py-20">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
+      📝 Publish Your Article  <span class="text-blue-400">on Digital Harbour</span>
+    </h1>
+    <p class="section-subtext">Empower your voice and showcase your work to a global audience.</p>
+    <div class="flex justify-center flex-wrap">
+      <a href="{% url 'create_author_profile' %}" class="nav-btn">Create Profile</a>
+      <a href="{% url 'publish_book' %}" class="nav-btn">Publish Book</a>
+      <a href="{% url 'community_home' %}" class="nav-btn">Join Community</a>
+      <a href="{% url 'author_dashboard' %}" class="nav-btn">Go to Dashboard</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- Steps to Publish Article Section -->
+<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-16">
+  <h2 class="text-3xl md:text-4xl font-extrabold text-center text-white mb-4 tracking-tight">
+    🧭 How to Publish Your Article in 4 Easy Steps
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/write_book.png' %}" alt="Step 1" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 1: Prepare Your Article</h3>
+        <p class="text-sm leading-relaxed">Write a well-researched, original article in PDF or DOCX format. Use references and keep it professional.</p>
+      </div>
+    </div>
+
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#4f46e5] to-[#818cf8] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/design_cover.png' %}" alt="Step 2" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 2: Fill Out the Form</h3>
+        <p class="text-sm leading-relaxed">Provide title, description, tags, and upload your article using the form below.</p>
+      </div>
+    </div>
+
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#0f766e] to-[#14b8a6] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/for.png' %}" alt="Step 3" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 3: Submit for Review</h3>
+        <p class="text-sm leading-relaxed">Once submitted, our team will review your article and notify you of the publication status.</p>
+      </div>
+    </div>
+
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#7c3aed] to-[#c084fc] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/track.png' %}" alt="Step 4" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 4: Track Performance</h3>
+        <p class="text-sm leading-relaxed">After publishing, monitor views, shares, and earnings from your author dashboard.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Article Form & Instructions Section -->
+<div class="min-h-screen py-20 px-6 lg:px-20 flex flex-col lg:flex-row gap-12">
+  <!-- Instructions -->
+  <div class="lg:w-1/3 space-y-8">
+    <div class="instruction-box">
+      <h3 class="text-2xl font-bold mb-4">📌 Submission Guidelines</h3>
+      <ul class="space-y-2 text-sm leading-relaxed">
+        <li>🗂️ File format: <strong>PDF, DOCX</strong> only (max 10MB).</li>
+        <li>🖼️ Image format: <strong>JPG/PNG</strong>, 1200x800px recommended.</li>
+        <li>⚠️ Content must be original and plagiarism-free.</li>
+        <li>✅ Ensure proper formatting, language, and citations.</li>
+      </ul>
+    </div>
+    <img src="{% static 'blog/images/write-image.png' %}" alt="Instructions Visual" class="w-full rounded-xl shadow-xl mt-6">
+  </div>
+
+  <!-- Form -->
+  <div class="lg:w-2/3 bg-black bg-opacity-30 backdrop-blur-md p-10 rounded-3xl shadow-2xl text-white mb-2">
+    <h1 class="form-heading">✍️ Submit Your Article</h1>
+    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+      {% csrf_token %}
+
+      <div>
+        <label class="form-label">📌 Title</label>
+        {{ form.title }}
+      </div>
+
+      <div>
+        <label class="form-label">🗂️ Topic</label>
+        {{ form.topic }}
+      </div>
+
+      <div>
+        <label class="form-label">🧾 Article Description</label>
+        <textarea name="article_description" rows="3" required class="form-textarea" placeholder="Brief overview of the article..."></textarea>
+      </div>
+
+      <div>
+        <label class="form-label">📎 Upload Article File</label>
+        {{ form.content_file }}
+      </div>
+
+      <div>
+        <label class="form-label">🖼️ Upload Image (optional)</label>
+        {{ form.image }}
+      </div>
+
+      <div>
+        <label class="form-label">📷 Image Description</label>
+        {{ form.image_description }}
+      </div>
+
+      <div>
+        <label class="form-label">👤 Author Name</label>
+        <input type="text" name="author_name" class="form-input" placeholder="e.g. Jane Smith" required>
+      </div>
+
+      <div>
+        <label class="form-label">🎓 Author Designation</label>
+        <input type="text" name="author_designation" class="form-input" placeholder="e.g. Blogger, Researcher" required>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        🚀 Submit Article for Review
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Steps to Publish Article Section -->
+<div class="max-w-7xl mx-auto px-6 lg:px-12 pt-8 pb-16">
+  <h2 class="text-3xl md:text-4xl font-extrabold text-center text-white mb-10 tracking-tight">
+    📖 Publish Your First Book in 4 Simple Steps
+  </h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#1e3a8a] to-[#3b82f6] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/write_book.png' %}" alt="Step 1" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 1: Write</h3>
+        <p class="text-sm leading-relaxed">Create a compelling manuscript in PDF or DOCX format, well-edited and proofread.</p>
+      </div>
+    </div>
+
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#4f46e5] to-[#818cf8] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/design_cover.png' %}" alt="Step 2" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 2: Design</h3>
+        <p class="text-sm leading-relaxed">Use your creativity or our tools to make a stunning and professional book cover.</p>
+      </div>
+    </div>
+
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#0f766e] to-[#14b8a6] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/upload.png' %}" alt="Step 3" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 3: Upload</h3>
+        <p class="text-sm leading-relaxed">Upload your manuscript and cover easily using our user-friendly dashboard.</p>
+      </div>
+    </div>
+
+    <!-- Step Box -->
+    <div class="bg-gradient-to-r from-[#7c3aed] to-[#c084fc] rounded-3xl p-6 shadow-lg transition-transform hover:scale-105 flex flex-col md:flex-row items-center space-x-4">
+      <img src="{% static 'blog/images/publish.png' %}" alt="Step 4" class="w-24 h-24 rounded-xl object-cover shadow-md border border-white">
+      <div class="text-white mt-4 md:mt-0">
+        <h3 class="text-xl font-semibold mb-1">Step 4: Publish</h3>
+        <p class="text-sm leading-relaxed">Submit your book for final review and launch it globally with just one click.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

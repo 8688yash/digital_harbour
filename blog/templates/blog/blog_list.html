@@ -1,0 +1,136 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+
+
+{% block title %}Blog Library{% endblock %}
+
+{% block content %}
+
+
+<!-- Top Section (Background Image) -->
+<section class="min-h-screen bg-cover bg-center bg-fixed pt-24" style="background-image: url('{% static 'blog/images/bg_library.jpg' %}');">
+  <div class="bg-black bg-opacity-40 w-full py-10 px-6 text-white">
+    <div class="text-center mb-10">
+      <h1 class="text-6xl font-extrabold font-orbitron text-pink-300 mb-6">📚 Digital Harbour Blogs</h1>
+      <p class="text-xl text-gray-300 font-bold mb-4">Explore insightful blogs from authors and innovators. Regularly updated with approved posts.</p>
+    </div>
+
+    <!-- Blog Grid View -->
+    {% if blogs %}
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 overflow-y-auto max-h-[75vh] px-2 scrollbar-thin scrollbar-thumb-pink-500 scrollbar-track-gray-800">
+        {% for blog in blogs %}
+          <div class="bg-gradient-to-br from-slate-800 via-slate-700 to-black bg-opacity-40 rounded-xl shadow-xl p-3 border border-slate-700 hover:scale-105 transition-transform duration-300 group">
+            
+            <!-- Blog Image -->
+            <div class="w-full h-40 rounded-lg overflow-hidden shadow-inner border border-slate-700 mb-3">
+              {% if blog.image %}
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}" class="w-full h-full object-cover">
+              {% else %}
+                <div class="w-full h-full bg-slate-700 flex items-center justify-center text-gray-400 text-sm">No Image</div>
+              {% endif %}
+            </div>
+
+            <!-- Blog Info -->
+            <h2 class="text-lg font-bold text-cyan-300 mb-1 truncate" title="{{ blog.title }}">
+              {{ blog.title }}
+            </h2>
+            {% if blog.tags %}
+              <p class="text-xs mb-1">
+                <span class="bg-indigo-700 px-2 py-1 rounded-full text-white shadow-sm">
+                  {{ blog.tags }}
+                </span>
+              </p>
+            {% endif %}
+            <p class="text-sm text-gray-300">
+              <strong>Author:</strong> {{ blog.author.get_full_name|default:blog.author.username }}
+            </p>
+            <p class="text-sm text-gray-400 mb-2">
+              <strong>Date:</strong> {{ blog.created_at|date:"F j, Y" }}
+            </p>
+
+            <!-- Buttons -->
+            {% if blog.pdf_file %}
+              <div class="flex flex-col space-y-2">
+                <a href="{% url 'blog_view_pdf' blog.id %}" target="_blank"
+                   class="bg-gradient-to-br from-purple-600 to-indigo-600 text-white text-sm py-1.5 text-center rounded-md shadow-md hover:shadow-pink-500/50 transition transform hover:scale-105">
+                  View
+                </a>
+                <a href="{{ blog.pdf_file.url }}" download
+                   class="bg-gradient-to-br from-green-600 to-emerald-500 text-white text-sm py-1.5 text-center rounded-md shadow-md hover:shadow-green-500/50 transition transform hover:scale-105">
+                  Download
+                </a>
+              </div>
+            {% else %}
+              <p class="text-red-400 text-sm mt-2">No PDF available</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p class="text-center text-gray-300 mt-10">No blogs available yet. Start publishing to see your content here!</p>
+    {% endif %}
+
+    <!-- Navigation Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 px-4 py-10">
+      <a href="{% url 'author_dashboard' %}" class="bg-gradient-to-r from-teal-400 to-blue-600 hover:from-blue-500 hover:to-cyan-400 text-white py-2 px-5 rounded-xl shadow-xl text-base font-semibold">Author Dashboard</a>
+      <a href="{% url 'create_author_profile' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-2 px-5 rounded-xl shadow-xl text-base font-semibold">Create Author Profile</a>
+      <a href="{% url 'community_home' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-2 px-5 rounded-xl shadow-xl text-base font-semibold">Join Community</a>
+      <a href="{% url 'blog_list' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-2 px-5 rounded-xl shadow-xl text-base font-semibold">Explore Blogs</a>
+      <a href="{% url 'library' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-2 px-5 rounded-xl shadow-xl text-base font-semibold">Library</a>
+      <a href="{% url 'gallery' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-2 px-5 rounded-xl shadow-xl text-base font-semibold">Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- Explore Domains Section -->
+<section class="min-h-screen bg-cover bg-center bg-fixed" style="background-image: url('{% static 'blog/images/top-bg.jpg' %}');">
+  <div class="py-16 px-6 bg-black bg-opacity-40 text-white">
+    <div class="text-center mb-10">
+      <h2 class="text-5xl font-extrabold text-pink-300 mb-4">🌐 Explore Domains</h2>
+      <p class="text-2xl font-medium text-gray-200 mb-8">Our blogs cover a variety of professional and creative domains.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {% for domain in domains %}
+        <div class="bg-white/80 rounded-xl shadow-xl hover:shadow-indigo-400 transition hover:scale-105 p-6">
+          <h3 class="text-3xl font-extrabold text-black mb-2 text-center">{{ domain }}</h3>
+          <p class="text-emerald-800 text-center font-extrabold">Blogs focused on {{ domain }} trends, tutorials, and expert insights.</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Visibility and Earnings Section -->
+  <div class="w-full px-6 pb-16 pt-10">
+    <div class="bg-black bg-opacity-70 text-white rounded-3xl shadow-xl px-10 py-14 max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-5xl font-bold text-purple-300 mb-4">Why Publish on Digital Harbour?</h2>
+        <p class="text-2xl text-indigo-300 font-medium">Reach, earn, and grow with a platform built for creative minds.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Visibility -->
+        <div class="flex items-center bg-sky-100 rounded-lg p-6 shadow-md">
+          <img src="{% static 'blog/images/visibility.png' %}" alt="Visibility Icon" class="w-24 h-24 mr-4">
+          <div>
+            <h3 class="text-2xl font-bold text-sky-900 mb-2">🚀 Visibility</h3>
+            <p class="text-gray-800 font-extrabold text-sm">Be discovered globally. Appear in featured blogs, search engines, and newsletters. Maximize reach with SEO and community engagement.</p>
+          </div>
+        </div>
+
+        <!-- Earnings -->
+        <div class="flex items-center bg-green-100 rounded-lg p-6 shadow-md">
+          <img src="{% static 'blog/images/earnings.png' %}" alt="Earnings Icon" class="w-24 h-24 mr-4">
+          <div>
+            <h3 class="text-2xl font-bold text-green-800 mb-2 r">💰 Earnings</h3>
+            <p class="text-gray-800 font-extrabold  text-sm">Earn from every view, download, and sale. Access bonuses, referrals, and premium programs as your content gains traction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

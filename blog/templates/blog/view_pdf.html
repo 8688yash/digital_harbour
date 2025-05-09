@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% block title %}{{ blog.title }}{% endblock %}
+
+{% block content %}
+<div class="text-white">
+  <h1 class="text-3xl font-bold mb-6 text-center">{{ blog.title }}</h1>
+  <div class="flex justify-center">
+    {% if blog.pdf_file %}
+      <iframe src="{{ blog.pdf_file.url }}" class="w-full max-w-4xl h-[90vh] rounded-md shadow-xl" frameborder="0"></iframe>
+    {% else %}
+      <p class="text-center text-red-400">PDF not available.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

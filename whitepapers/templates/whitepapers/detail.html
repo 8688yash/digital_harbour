@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+
+
+{% block title %}Blog Library{% endblock %}
+
+{% block content %}
+
+
+<div class="p-6 bg-white rounded-xl shadow-xl">
+    <h1 class="text-3xl font-bold">{{ whitepaper.title }}</h1>
+    <img src="{{ whitepaper.cover_image.url }}" class="w-full h-64 object-cover mt-4 rounded">
+    <p class="mt-6 text-gray-800">{{ whitepaper.description }}</p>
+    <embed src="{{ whitepaper.content_pdf.url }}" class="w-full h-[800px] mt-8 border rounded" type="application/pdf">
+  </div>
+  
+{% endblock %}
+
+  

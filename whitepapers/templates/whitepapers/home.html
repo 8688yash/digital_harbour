@@ -1,0 +1,121 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% load whitepaper_filters %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+{% block title %}Whitepapers Library - Digital Harbour{% endblock %}
+
+{% block content %}
+
+<div class="bg-gray-950 bg-opacity-45 text-white pb-20" style="background-image: url('/static/blog/images/whitepapers_bg.jpg'); background-size: cover; background-position: center;">
+
+  <!-- Header -->
+  <div class="text-center mb-20">
+    <h1 class="text-4xl font-orbitron font-extrabold mb-4 text-blue-400 drop-shadow-md">Digital Harbour Whitepapers</h1>
+    <p class="text-lg max-w-3xl mx-auto font-poppins text-gray-200">Explore expert insights, deep research, and cutting-edge innovations in tech, business, and marketing. Curated by professionals for professionals.</p>
+  </div>
+
+  <!-- Whitepapers Info Section - Horizontal Layout -->
+  <section class="w-full py-16 px-6 bg-black bg-opacity-20 ">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Box 1 -->
+      <div class="bg-gradient-to-br from-gray-900 via-gray-950 to-black p-6 rounded-2xl shadow-xl border border-gray-700 text-center">
+        <h2 class="text-2xl font-orbitron font-bold text-yellow-400 mb-4">What Are Whitepapers?</h2>
+        <img src="{% static 'blog/images/whitepaper_icon1.png' %}" alt="Join Community" class="w-full h-68 object-cover rounded-2xl mt-6 shadow-md mb-4">
+        <p class="text-sm text-gray-300 leading-relaxed font-poppins font-semibold">
+          Whitepapers are detailed documents that present research-backed solutions to complex problems. They bridge the gap between data and actionable insights, offering structured content that serves strategic, technical, and academic purposes.
+        </p>
+        <p class="mt-2 text-xs text-gray-400 font-poppins">Used for education, persuasion, and authority-building across industries.</p>
+      </div>
+  
+      <!-- Box 2 -->
+      <div class="bg-gradient-to-br from-indigo-900 via-indigo-950 to-gray-950 p-6 rounded-2xl shadow-xl border border-indigo-700 text-center">
+        <h2 class="text-2xl font-orbitron font-bold text-yellow-400 mb-4">Why They Matter Today</h2>
+        <img src="{% static 'blog/images/whitepaper_icon2.png' %}" alt="Join Community" class="w-full h-68 object-cover rounded-2xl mt-6 shadow-md mb-4">
+        <p class="text-sm text-gray-200 leading-relaxed font-poppins font-semibold">
+          In an age of fleeting media, whitepapers deliver lasting impact through well-researched, data-driven storytelling. They help shape perception, influence policies, and guide investment or adoption decisions.
+        </p>
+        <p class="mt-2 text-xs text-gray-400 font-poppins">Effective for tech companies, policymakers, startups, and academic institutions.</p>
+      </div>
+  
+      <!-- Box 3 -->
+      <div class="bg-gradient-to-br from-blue-900 via-blue-950 to-black p-6 rounded-2xl shadow-xl border border-blue-700 text-center">
+        <h2 class="text-2xl font-orbitron font-bold text-yellow-400 mb-4">Structure of Whitepapers</h2>
+        <img src="{% static 'blog/images/whitepaper_icon3.png' %}" alt="Structure of Whitepaper" class="w-full h-62 object-cover rounded-2xl mt-6 shadow-md mb-4">
+        <p class="text-sm text-gray-200 leading-relaxed font-poppins font-semibold">
+          A compelling whitepaper starts with an executive summary, followed by the problem statement, methodology, solution, and conclusion. Infographics and data visuals enhance clarity, and references improve trustworthiness.
+        </p>
+        <p class="mt-2 text-xs text-gray-400 font-poppins">Include bullet points, citations, and summaries for accessibility.</p>
+      </div>
+  
+      <!-- Box 4 -->
+      <div class="bg-gradient-to-br from-green-900 via-green-950 to-black p-6 rounded-2xl shadow-xl border border-green-700 text-center">
+        <h2 class="text-2xl font-orbitron font-bold text-yellow-400 mb-4">Who Should Write Them?</h2>
+        <img src="{% static 'blog/images/whitepaper_icon4.png' %}" alt="Who Should Write Whitepapers" class="w-full h-58 object-cover rounded-2xl mt-6 shadow-md mb-4 ">
+        <p class="text-sm text-gray-200 leading-relaxed font-poppins font-semibold">
+          Experts in tech, policy, education, or consulting with deep domain knowledge should consider writing whitepapers. Collaborations between strategists and researchers often result in the most impactful documents.
+        </p>
+        <p class="mt-2 text-xs text-gray-400 font-poppins">Best authored by multidisciplinary teams for well-rounded insight.</p>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+  
+<div class="bg-gray-950 bg-opacity-45 text-white pb-20" style="background-image: url('/static/blog/images/rgb.jpg'); background-size: cover; background-position: center;">
+  <!-- Categories -->
+  <!-- Categories -->
+  <section class="mb-24 w-full py-16 px-6 bg-white bg-opacity-30">
+    <h2 class="text-5xl font-orbitron font-bold text-black mb-10 text-center drop-shadow-lg">Browse by Category</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      {% for cat in categories %}
+        <a href="{% url 'whitepaper_category' cat %}" class="rounded-xl p-6 bg-gradient-to-br from-indigo-800 via-indigo-900 to-gray-900 text-white text-center shadow-xl transform transition duration-300 hover:scale-105 hover:shadow-2xl border border-indigo-700 backdrop-blur-md bg-opacity-70">
+          <h3 class="text-lg md:text-xl font-poppins font-semibold capitalize tracking-wide text-white drop-shadow">{{ cat|underscore_to_space }}</h3>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+
+
+  <!-- Key Features -->
+  <section class="bg-gray-800 bg-opacity-40 p-10 rounded-xl shadow-xl mb-24">
+    <h2 class="text-5xl font-orbitron font-bold text-red-800 text-center mb-14">Key Features of a High-Quality Whitepaper</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="bg-white text-black p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <img src="{% static 'blog/images/research_icon.png' %}" class=" mx-auto  w-full h-68 object-cover rounded-2xl mt-6 shadow-md mb-4" alt="In-Depth Research">
+        <h3 class="text-xl font-bold text-center">In-Depth Research</h3>
+        <p class="text-sm text-center  font-semibold text-gray-700">Supported with expert insights, facts, citations, and verified data.</p>
+      </div>
+      <div class="bg-white text-black p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <img src="{% static 'blog/images/clarity_icon.png' %}" class=" mx-auto  w-full h-68 object-cover rounded-2xl mt-6 shadow-md mb-4" alt="Clear Structure">
+        <h3 class="text-xl font-bold text-center">Clear Structure</h3>
+        <p class="text-sm text-center  font-semibold text-gray-700">Well-organized sections help guide the reader through the journey.</p>
+      </div>
+      <div class="bg-white text-black p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <img src="{% static 'blog/images/visuals_icon.png' %}" class=" mx-auto  w-full h-68 object-cover rounded-2xl mt-6 shadow-md mb-4" alt="Visual Aids">
+        <h3 class="text-xl font-bold text-center">Visual Aids</h3>
+        <p class="text-sm text-center font-semibold text-gray-700">Graphs, flowcharts, and illustrations to support understanding.</p>
+      </div>
+      <div class="bg-white text-black p-6 rounded-xl shadow-md hover:scale-105 transition">
+        <img src="{% static 'blog/images/insight_icon.png' %}" class=" mx-auto  w-full h-68 object-cover rounded-2xl mt-6 shadow-md mb-4" alt="Actionable Insights">
+        <h3 class="text-xl font-bold text-center">Actionable Insights</h3>
+        <p class="text-sm font-semibold text-center text-gray-700">Leaves the reader with strategies or recommendations they can apply.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="p-12 bg-opacity-45 bg-black  text-white text-center shadow-2xl hover:brightness-110 transition">
+    <h2 class="text-5xl text-white font-extrabold font-orbitron  mb-4">Contribute Your Whitepaper</h2>
+    <p class="text-2xl text-yellow-400 mx-auto font-poppins font-bold">Got something revolutionary to share? Join Digital Harbour’s creator network and publish your original whitepaper to an audience that values quality knowledge.</p>
+    <a href="{% url 'submit_whitepaper' %}" class="mt-6 inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-full hover:bg-gray-200 transition">Submit Now</a>
+  </section>
+
+</div>
+
+
+{% endblock %}

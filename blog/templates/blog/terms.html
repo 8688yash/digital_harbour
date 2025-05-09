@@ -1,0 +1,65 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Terms & Conditions{% endblock %}
+
+{% block content %}
+
+<!-- Page Container -->
+<div class="max-w-5xl mx-auto px-4 py-10 space-y-12">
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center rounded-xl shadow-lg py-12 px-6">
+    <h1 class="text-4xl font-bold mb-3">Terms & Conditions</h1>
+    <p class="text-lg max-w-2xl mx-auto">Please read these terms and conditions carefully before using Digital Harbour.</p>
+  </section>
+
+  <!-- Terms Content -->
+  <section class="bg-white text-gray-800 rounded-lg shadow-lg p-8 space-y-8 leading-relaxed">
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">1. Acceptance of Terms</h2>
+      <p>By accessing or using Digital Harbour (“we”, “us”, “our”), you agree to be bound by these Terms and Conditions. If you do not agree with any part of the terms, you must not use our website or services.</p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">2. Use of Content</h2>
+      <p>All content available on this site including text, graphics, logos, and digital downloads are the intellectual property of Digital Harbour unless otherwise stated. Unauthorized use may violate copyright or trademark laws.</p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">3. User Responsibilities</h2>
+      <p>Users are responsible for maintaining the confidentiality of their account credentials and for all activities that occur under their account. Digital Harbour is not liable for any loss or damage resulting from your failure to comply with this obligation.</p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">4. Prohibited Activities</h2>
+      <ul class="list-disc pl-6 space-y-1">
+        <li>Using the site for any unlawful purpose</li>
+        <li>Attempting to gain unauthorized access to our systems</li>
+        <li>Uploading malicious code or harmful content</li>
+        <li>Impersonating any person or entity</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">5. Termination</h2>
+      <p>We reserve the right to suspend or terminate access to our services at any time, without notice, for any user who violates these terms or engages in conduct we deem harmful to our platform.</p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">6. Modifications</h2>
+      <p>Digital Harbour reserves the right to update these terms at any time. We will notify users of changes by updating this page. Continued use of the platform after changes implies acceptance.</p>
+    </div>
+
+    <div>
+      <h2 class="text-2xl font-semibold mb-2">7. Contact Us</h2>
+      <p>If you have any questions or concerns about these Terms & Conditions, feel free to 
+        <a href="{% url 'contact' %}" class="text-indigo-600 underline hover:text-indigo-800">contact us</a>.
+      </p>
+    </div>
+
+    <p class="text-right text-sm text-gray-500">Last updated: April 30, 2025</p>
+  </section>
+</div>
+
+{% endblock %}

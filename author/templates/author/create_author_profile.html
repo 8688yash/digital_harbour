@@ -1,0 +1,224 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Create Your Author Profile | Digital Harbour{% endblock %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+
+{% block content %}
+<!-- Fullscreen Background Hero Section -->
+<section class="w-full bg-cover bg-center py-20 px-4 text-white" style="background-image: url('{% static 'blog/images/author_bg.png' %}');">
+  <div class="max-w-5xl mx-auto text-center">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight" style="font-family: 'Orbitron', sans-serif;">🖋️ Join as a Digital Harbour Author</h1>
+    <p class="text-xl md:text-2xl font-light">Start your journey as a creator. Build your brand. Earn. Connect. Grow.</p>
+  </div>
+
+   <!-- Profile Creation Section -->
+   <section class="bg-transparent py-20 relative">
+    <!-- Background Image -->
+    <img src="{% static 'images/career_growth_bg.png' %}" alt="Career Growth" class="absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none z-0" />
+  
+    <!-- Frosted Glass Container -->
+    <div class="relative max-w-7xl mx-auto grid md:grid-cols-2 gap-10 p-10 rounded-3xl shadow-2xl border border-indigo-200 bg-white/20  z-10">
+      
+      <!-- Info Column -->
+      <!-- Info Column -->
+      <div class="space-y-8 text-white px-4 md:px-8 py-6">
+        <!-- Top Illustration -->
+        <img src="{% static 'blog/images/author_profile_illustration.webp' %}" alt="Author Illustration"
+             class="w-full h-64 object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+      
+        <!-- Heading -->
+        <h2 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-indigo-400 via-green-300 to-cyan-400 text-transparent bg-clip-text">
+          📘 Why Create an Author Profile?
+        </h2>
+      
+        <!-- Benefits List -->
+        <ul class="list-disc list-inside text-black/90 space-y-3 text-lg md:text-xl leading-relaxed">
+          <li class="hover:translate-x-1 transition-all duration-200  bg-gradient-to-r from-indigo-400 via-green-300 to-cyan-400 font-bold">Highlight your skills, interests & domain expertise</li>
+          <li class="hover:translate-x-1 transition-all duration-200  bg-gradient-to-r from-indigo-400 via-green-300 to-cyan-400 font-bold "> Showcase bio, certificates, achievements, and books</li>
+          <li class="hover:translate-x-1 transition-all duration-200  bg-gradient-to-r from-indigo-400 via-green-300 to-cyan-400 font-bold"> Appear on Digital Harbour Blog & Marketplace</li>
+          <li class="hover:translate-x-1 transition-all duration-200  bg-gradient-to-r from-indigo-400 via-green-300 to-cyan-400 font-bold"> Earn through engagement, likes, downloads & purchases</li>
+          <li class="hover:translate-x-1 transition-all duration-200  bg-gradient-to-r from-indigo-400 via-green-300 to-cyan-400 font-bold"> Access exclusive author tools, analytics, and growth boosters</li>
+        </ul>
+      
+        <!-- Illustration above steps -->
+        <img src="{% static 'blog/images/steps_illustration.png' %}" alt="Steps Illustration"
+             class="w-full h-100 object-cover rounded-xl shadow-md hover:scale-105 transition-transform duration-300">
+      
+        
+      </div>
+
+
+      
+
+
+
+
+
+
+          <!-- Form Column -->
+          <div class="max-w-3xl mx-auto  text-white p-16 rounded-2xl shadow-2xl mt-10  bg-black bg-opacity-40 backdrop-blur-md   shadow-2xl text-white mb-8">
+            <h2 class="text-3xl font-bold mb-2 text-center">🎯 Create Your Author Profile</h2>
+            <form method="POST" enctype="multipart/form-data" class="space-y-6">
+              {% csrf_token %}
+          
+              <!-- Full Name -->
+              <div>
+                <label class="block text-sm font-medium mb-1">👤 Full Name <span class="text-red-500">*</span></label>
+                <input type="text" name="full_name" required
+                       class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                       placeholder="John Doe">
+              </div>
+          
+              <!-- Email -->
+              <div>
+                <label class="block text-sm font-medium mb-1">📧 Email Address <span class="text-red-500">*</span></label>
+                <input type="email" name="email" required
+                       class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                       placeholder="john@example.com">
+              </div>
+          
+              <!-- Username -->
+              <div>
+                <label class="block text-sm font-medium mb-1">🔖 Username <span class="text-red-500">*</span></label>
+                <input type="text" name="username" required
+                       class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                       placeholder="john_author">
+              </div>
+          
+              <!-- Password -->
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium mb-1">🔒 Password <span class="text-red-500">*</span></label>
+                  <input type="password" name="password" required
+                         class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                         placeholder="Enter password">
+                </div>
+          
+                <div>
+                  <label class="block text-sm font-medium mb-1">🔒 Confirm Password <span class="text-red-500">*</span></label>
+                  <input type="password" name="confirm_password" required
+                         class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                         placeholder="Re-enter password">
+                </div>
+              </div>
+          
+              <!-- Profile Image -->
+              <div>
+                <label class="block text-sm font-medium mb-1">🖼️ Profile Picture <span class="text-red-500">*</span></label>
+                <input type="file" name="profile_image" accept="image/*" required
+                       class="w-full p-2 border border-gray-700 rounded-lg bg-gray-800 text-white file:text-white file:bg-indigo-600 file:border-0 file:px-4 file:py-2 file:rounded-md hover:file:bg-indigo-500">
+              </div>
+          
+              <!-- Bio -->
+              <div>
+                <label class="block text-sm font-medium mb-1">📝 Short Bio <span class="text-red-500">*</span></label>
+                <textarea name="bio" rows="3" required
+                          class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                          placeholder="Tell us about your passion, goals, and what drives you."></textarea>
+              </div>
+          
+              <!-- Education -->
+              <div>
+                <label class="block text-sm font-medium mb-1">🎓 Education <span class="text-red-500">*</span></label>
+                <input type="text" name="education" required
+                       class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                       placeholder="e.g. B.A. in Literature, M.Sc in Data Science">
+              </div>
+          
+              <!-- Skills -->
+              <div>
+                <label class="block text-sm font-medium mb-1">💼 Skills <span class="text-red-500">*</span></label>
+                <input type="text" name="skills" required
+                       class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                       placeholder="e.g. Blogging, Python, Research Writing">
+              </div>
+          
+              <!-- Optional Fields -->
+              <div>
+                <label class="block text-sm font-medium mb-1">🏆 Achievements</label>
+                <textarea name="achievements" rows="2"
+                          class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                          placeholder="Awards, recognitions, milestones, etc. (optional)"></textarea>
+              </div>
+          
+              <div>
+                <label class="block text-sm font-medium mb-1">📜 Certifications</label>
+                <textarea name="certifications" rows="2"
+                          class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                          placeholder="Relevant certificates and credentials (optional)"></textarea>
+              </div>
+          
+              <div>
+                <label class="block text-sm font-medium mb-1">📚 Publications</label>
+                <textarea name="publications" rows="2"
+                          class="w-full p-3 border border-gray-700 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm"
+                          placeholder="Books, research papers, or online articles (optional)"></textarea>
+              </div>
+          
+              <!-- Agree to Privacy Policy -->
+              <div class="flex items-center space-x-3 mt-4">
+                <input type="checkbox" name="agree_policy" required
+                       class="w-5 h-5 text-indigo-600 bg-gray-800 border-gray-700 rounded focus:ring-2 focus:ring-indigo-500">
+                <label class="text-sm text-black-800">I agree to the <a href="/privacy-policy" class="text-black-500 hover:underline">Privacy Policy</a> <span class="text-red-500">*</span></label>
+              </div>
+          
+              <!-- Submit Button -->
+              <div>
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-lg font-bold rounded-xl shadow-lg hover:scale-105 hover:opacity-90 transition-all duration-200">
+                  <a href="{% url 'author_dashboard' %}">
+                    🚀 Create Profile & Launch My Journey
+                  </a>
+                </button>
+              </div>
+            </form>
+          </div>
+          
+         
+    </div>
+  </section>
+  
+</section>
+
+
+
+<!-- Platform Benefits Section -->
+<section class="w-full bg-center bg-no-repeat bg-cover py-24 px-6 text-black-900" style="background-image: url('{% static 'blog/images/pubi.png' %}'); background-size: 100% auto;">
+  <div class="max-w-6xl mx-auto text-center bg-black bg-opacity-60 p-10 rounded-lg shadow-lg"> 
+  
+    <h2 class="text-4xl md:text-5xl font-extrabold text-red-600 mb-10 drop-shadow-md">📢 Why Publish with Digital Harbour?</h2>
+    <p class="text-3xl font-bold mb-12 text-center">
+      Whether you're an expert, storyteller, or teacher, Digital Harbour gives you the tools to create impact.
+      Monetize your content, reach global audiences, and grow as a creator.
+    </p>
+    <div class="grid md:grid-cols-3 gap-10 text-left">
+      <!-- Card 1 -->
+      <div class="bg-gradient-to-tr from-white via-slate-100 to-slate-200/70 p-6 rounded-2xl shadow-xl backdrop-blur-sm hover:scale-105 transition-all duration-300 border border-slate-300">
+        <h3 class="text-xl font-bold text-indigo-900 mb-3 text-center ">🌍 Global Visibility</h3>
+        <p class="text-green-900 font-semibold leading-relaxed text-center">
+          Your work will be discoverable by readers, organizations, and publishers around the world. We spotlight
+          high-performing authors and content across the platform.
+        </p>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-gradient-to-tr from-white via-slate-100 to-slate-200/70 p-6 rounded-2xl shadow-xl backdrop-blur-sm hover:scale-105 transition-all duration-300 border border-slate-300">
+        <h3 class="text-xl font-bold text-indigo-900 mb-3 text-center ">💰 Smart Monetization</h3>
+        <p class="text-red-900 font-semibold leading-relaxed text-center ">
+          Get paid through views, likes, downloads, and book sales. You also gain access to upcoming monetization
+          tools and analytics via your dashboard.
+        </p>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-gradient-to-tr from-white via-slate-100 to-slate-200/70 p-6 rounded-2xl shadow-xl backdrop-blur-sm hover:scale-105 transition-all duration-300 border border-slate-300">
+        <h3 class="text-xl font-bold text-indigo-900 mb-3 text-center">📈 Personal Growth</h3>
+        <p class="text-green-800 font-semibold  leading-relaxed text-center font-semi bold ">
+          Track your progress, collaborate with other creators, and build your authority as a niche thought leader with your verified author profile.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}

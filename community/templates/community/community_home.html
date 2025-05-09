@@ -1,0 +1,150 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Community{% endblock %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="relative min-h-screen w-full pt-[120px] pb-10 z-10">
+  <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" style="background-image: url('{% static 'blog/images/community-bg.png' %}');"></div>
+  <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
+
+  <div class="relative z-10 px-6 max-w-[1440px] mx-auto text-center text-white">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">
+      Welcome to <span class="text-blue-400">Digital Harbour Community</span>
+    </h1>
+    <p class="text-lg md:text-xl text-blue-100 mb-8">
+      Your collaborative hub for <strong>AI</strong>, <strong>Maritime</strong>, and <strong>Tech innovation</strong>.<br>
+      Engage with visionaries, share ideas, build your portfolio, and shape the future together.
+    </p>
+
+    <!-- Feature Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+      <!-- Why Join -->
+      <div class="bg-gradient-to-br from-cyan-200 to-cyan-100 text-gray-800 rounded-2xl p-6 shadow-xl hover:scale-105 transition-all duration-300">
+        <h2 class="text-2xl font-bold mb-3 text-cyan-900">Why Join?</h2>
+        <img src="{% static 'blog/images/whyjoin.jpg' %}" alt="Who We Are" class="w-full h-62 object-cover rounded-2xl mt-6 shadow-md">
+        <p class="text-center text-[17px] font-semibold leading-relaxed mb-6">Join a network of dreamers and creators shaping the future of tech.</p>
+        <ul class="font-bold text-red-700">
+          <li>🚀 Build your personal brand</li>
+          <li>🤝 Connect with experts & peers</li>
+          <li>📢 Share your projects</li>
+        </ul>
+  
+      </div>
+
+      <!-- What You Can Do -->
+      <div class="bg-gradient-to-br from-indigo-200 to-indigo-100 text-gray-800 rounded-2xl p-6 shadow-xl hover:scale-105 transition-all duration-300">
+        <h2 class="text-2xl font-bold mb-3 text-indigo-900">What You Can Do?</h2>
+        <img src="{% static 'blog/images/vaish.jpg' %}" alt="Who We Are" class="w-full h-62 object-cover rounded-2xl mt-6 shadow-md">
+        <p class="text-center text-[17px] font-semibold leading-relaxed mb-6">Unleash new posibilities of growth </p>
+        <ul class="font-bold text-red-700">
+          <li>🏆 Showcase achievements</li>
+          <li>📝 Create posts & profiles</li>
+          <li>🔍 Search by skills</li>
+          <li>🤝 Collaborate with experts</li>
+        </ul>
+    
+      </div>
+
+      <!-- Who We Are -->
+      <div class="bg-gradient-to-br from-pink-200 to-pink-100 text-gray-800 rounded-2xl p-6 shadow-xl hover:scale-105 transition-all duration-300">
+        <h2 class="text-2xl font-bold mb-3 text-pink-900">Who We Are?</h2>
+        <img src="{% static 'blog/images/weare.jpg' %}" alt="Who We Are" class="w-full h-62 object-cover rounded-2xl mt-6 shadow-md">
+        <p class="text-center text-[17px] font-semibold leading-relaxed mb-6">We are a collective of dreamers, builders, and changemakers.</p>
+        <ul class="font-bold text-red-700">
+          <li>🌌 Dreamers</li>
+          <li>🔧 Builders</li>
+          <li>🌍 Gamechangers</li>
+        </ul>
+        
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a href="{% url 'register' %}" class="mt-10 inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-xl text-lg shadow-lg transition">
+      🚀 Join Now
+    </a>
+  </div>
+</div>
+
+<!-- Main Community Layout -->
+<div class="max-w-[1440px] mx-auto px-6 py-12 bg-gradient-to-br from-[#f8fbff] to-[#eef2f9] font-['Poppins'] text-gray-800 grid grid-cols-1 lg:grid-cols-5 gap-8">
+  
+  <!-- LEFT PANEL -->
+  <aside class="space-y-6 lg:col-span-1">
+    
+    <!-- Profile Box -->
+    <div class="bg-white rounded-2xl shadow-lg text-center p-6 transition transform hover:scale-[1.02]">
+      <img src="{% static 'images/user.png' %}" class="w-24 h-24 mx-auto rounded-full mb-4 border-4 border-blue-100 shadow" alt="User">
+      <h3 class="text-xl font-bold text-blue-700">Welcome, User</h3>
+      <p class="text-sm text-gray-500">🚀 Innovator | Explorer | Collaborator</p>
+    </div>
+
+    <!-- Create Post Box -->
+    <div id="create" class="bg-gradient-to-br from-blue-50 to-white p-5 rounded-2xl shadow-xl border border-blue-100">
+      <h3 class="text-md font-semibold text-blue-800 mb-3">📢 Share Your Thoughts</h3>
+      <textarea placeholder="Write something exciting..." class="w-full p-3 border border-blue-200 rounded-md resize-none focus:ring-2 focus:ring-blue-300 focus:outline-none text-sm"></textarea>
+      <input type="file" class="w-full text-sm mt-2 bg-white file:mr-4 file:py-2 file:px-4 file:border file:rounded-md file:border-blue-300 file:text-sm file:bg-blue-100 file:text-blue-800 hover:file:bg-blue-200 transition">
+      <button class="w-full mt-4 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 shadow transition">🚀 Post</button>
+    </div>
+  </aside>
+
+  <!-- CENTER PANEL -->
+  <main class="space-y-6 lg:col-span-3" id="feed">
+    <!-- Post Example -->
+    <div class="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition">
+      <div class="flex items-center mb-4">
+        <img src="{% static 'images/user.png' %}" class="w-12 h-12 rounded-full mr-4 shadow" alt="User">
+        <div>
+          <h4 class="font-semibold text-lg">John Doe</h4>
+          <p class="text-sm text-gray-500">2 hours ago • 🧠 UI/UX Specialist</p>
+        </div>
+      </div>
+      <p class="mb-3 text-gray-700">💡 Loving the energy here at Digital Harbour! Let’s innovate together and build the future. #CommunityFirst</p>
+      <img src="{% static 'images/sample-post.jpg' %}" class="w-full rounded-xl mb-4 shadow-sm" alt="Post">
+      <div class="flex gap-6 text-blue-600 font-medium text-sm">
+        <button class="hover:text-blue-800">👍 Like</button>
+        <button class="hover:text-blue-800">💬 Comment</button>
+        <button class="hover:text-blue-800">🔗 Share</button>
+      </div>
+    </div>
+
+    <!-- Call to Action or Banner (Optional) -->
+    <div class="bg-gradient-to-r from-teal-100 via-white to-indigo-50 border border-indigo-200 text-center rounded-xl p-6 shadow-md">
+      <h3 class="text-xl font-semibold text-indigo-800">🌐 Engage. Connect. Grow.</h3>
+      <p class="text-sm text-gray-600 mt-2">Be a voice in the community. Share ideas, inspire innovation, and find collaborators.</p>
+    </div>
+  </main>
+
+  <!-- RIGHT PANEL -->
+  <aside class="space-y-6 lg:col-span-1">
+
+    <!-- Search Box -->
+    <div id="search" class="bg-gradient-to-r from-green-100 to-white rounded-2xl shadow-xl p-5 border border-green-200">
+      <h3 class="text-md font-semibold text-green-800 mb-2">🔍 Find Talent</h3>
+      <input type="text" placeholder="Search by skills (e.g., AI, Design)" class="w-full p-2 border border-green-300 rounded-md text-sm focus:ring-2 focus:ring-green-300 focus:outline-none">
+    </div>
+
+    <!-- Message Box -->
+    <div id="messages" class="bg-gradient-to-r from-purple-100 to-white rounded-2xl shadow-xl p-5 border border-purple-200">
+      <h3 class="text-md font-semibold text-purple-800 mb-2">💬 Messages</h3>
+      <p class="text-sm text-gray-600">Start new conversations, reply to threads, or share project files easily.</p>
+      <a href="{% url 'inbox' %}" class="block mt-4 text-center bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-md shadow transition">Go to Inbox</a>
+    </div>
+  </aside>
+</div>
+
+<!-- Mobile Bottom Nav -->
+<div class="fixed bottom-0 left-0 right-0 bg-white text-gray-700 border-t flex justify-around py-3 shadow-md md:hidden z-50">
+  <a href="#create" class="flex flex-col items-center text-xs font-semibold hover:text-blue-600">📝 <span>Create</span></a>
+  <a href="#feed" class="flex flex-col items-center text-xs font-semibold hover:text-blue-600">📰 <span>Feed</span></a>
+  <a href="#messages" class="flex flex-col items-center text-xs font-semibold hover:text-blue-600">💬 <span>Messages</span></a>
+  <a href="#search" class="flex flex-col items-center text-xs font-semibold hover:text-blue-600">🔎 <span>Search</span></a>
+</div>
+
+{% endblock %}p

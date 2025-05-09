@@ -1,0 +1,134 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block body_classes %}bg-cover bg-center bg-no-repeat bg-fixed min-h-screen font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow px-0 py-0{% endblock %}
+
+{% block content %}
+<div class="w-full bg-gradient-to-br from-blue-900 to-sky-950 text-white font-poppins">
+
+  <!-- Hero Section -->
+  <section class="w-full bg-cover bg-center py-24 px-8" style="background-image: url('{% static 'blog/images/roy.png' %}');">
+    <div class="max-w-5xl mx-auto text-center bg-black/60 p-10 rounded-xl shadow-lg">
+      <h1 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500 mb-10 uppercase tracking-widest drop-shadow-lg text-center">Publish Your Book on Digital Harbour</h1>
+      <p class="text-lg md:text-xl text-gray-200">Share your knowledge, creativity, and expertise with the world. Our streamlined process helps you get published fast with visibility and control.</p>
+    </div>
+  
+
+    <!-- Navigation Buttons -->
+    <div class="flex justify-center gap-6 my-10">
+      <a href="{% url 'author_dashboard' %}" class="bg-gradient-to-r from-teal-400 to-blue-600 hover:from-blue-500 hover:to-cyan-400 text-white py-3 px-6 rounded-xl shadow-xl text-lg font-semibold">Author Dashboard</a>
+      <a href="{% url 'create_author_profile' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-3 px-6 rounded-xl shadow-xl text-lg font-semibold">Create Author Profile</a>
+      <a href="{% url 'community_home' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-3 px-6 rounded-xl shadow-xl text-lg font-semibold">Join community</a>
+      <a href="{% url 'blog_list' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-3 px-6 rounded-xl shadow-xl text-lg font-semibold">explore blogs </a>
+      <a href="{% url 'library' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-3 px-6 rounded-xl shadow-xl text-lg font-semibold">library </a>
+      <a href="{% url 'gallery' %}" class="bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-indigo-600 hover:to-purple-500 text-white py-3 px-6 rounded-xl shadow-xl text-lg font-semibold">gallery </a>
+    </div>
+  
+
+    <!-- Detailed Steps to Publish -->
+    <!-- Step-by-Step Guide to Publish -->
+    <div class="max-w-7xl mx-auto text-center bg-black/60 p-10 rounded-xl shadow-lg">
+      <h2 class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-pink-300 to-purple-500 text-transparent bg-clip-text mb-10 text-center tracking-widest uppercase drop-shadow">
+        Step-by-Step Guide to Publish
+      </h2>
+    
+      <div class="grid lg:grid-cols-3 md:grid-cols-2 gap-8 text-gray-100">
+        <!-- Step Template -->
+        <div class="bg-gray-800/80 p-6 rounded-2xl border border-cyan-500 hover:scale-105 hover:brightness-110 transition-all duration-300 shadow-lg backdrop-blur-xl">
+          <h3 class="text-xl font-semibold text-cyan-300 mb-3 text-center">1. Create Your Author Profile</h3>
+          <p class="text-sm leading-relaxed text-gray-300 text-center font-semibold">Start your journey by building a strong author identity. Add a detailed bio, highlight your expertise, upload a high-quality profile image, and connect your social media. This profile helps readers know you and boosts your credibility across the platform.</p>
+        </div>
+    
+        <div class="bg-gray-800/80 p-6 rounded-2xl border border-purple-500 hover:scale-105 hover:brightness-110 transition-all duration-300 shadow-lg backdrop-blur-xl">
+          <h3 class="text-xl font-semibold text-purple-300 mb-3 text-center">2. Prepare Your Book</h3>
+          <p class="text-sm leading-relaxed text-gray-300 text-center font-semibold">Finalize your manuscript in PDF format. Include a catchy cover page, table of contents, structured chapters, illustrations, references, and an engaging introduction. Quality formatting ensures better readability and presentation.</p>
+        </div>
+    
+        <div class="bg-gray-800/80 p-6 rounded-2xl border border-emerald-500 hover:scale-105 hover:brightness-110 transition-all duration-300 shadow-lg backdrop-blur-xl">
+          <h3 class="text-xl font-semibold text-emerald-300 mb-3 text-center">3. Fill in the Publishing Form</h3>
+          <p class="text-sm leading-relaxed text-gray-300 text-center font-semibold">Provide all essential book details—title, description, genre, language, author info, pricing, and upload files. Add keywords for better discoverability and attach a stunning cover image to attract readers.</p>
+        </div>
+    
+        <div class="bg-gray-800/80 p-6 rounded-2xl border border-pink-500 hover:scale-105 hover:brightness-110 transition-all duration-300 shadow-lg backdrop-blur-xl">
+          <h3 class="text-xl font-semibold text-pink-300 mb-3 text-center">4. Submit for Review</h3>
+          <p class="text-sm leading-relaxed text-gray-300 text-center font-semibold">After submission, our editorial team evaluates your content for originality, formatting, and relevance. You’ll receive feedback or approval notifications. Ensure your work follows platform standards for a faster release.</p>
+        </div>
+    
+        <div class="bg-gray-800/80 p-6 rounded-2xl border border-yellow-500 hover:scale-105 hover:brightness-110 transition-all duration-300 shadow-lg backdrop-blur-xl">
+          <h3 class="text-xl font-semibold text-yellow-300 mb-3 text-center">5. Track Performance</h3>
+          <p class="text-sm leading-relaxed text-gray-300 text-center font-semibold">Access your Author Dashboard to monitor live stats—views, downloads, likes, reviews, and income. Stay updated on reader engagement and improve your content accordingly. Performance graphs make tracking easy and visual.</p>
+        </div>
+    
+        <div class="bg-gray-800/80 p-6 rounded-2xl border border-indigo-500 hover:scale-105 hover:brightness-110 transition-all duration-300 shadow-lg backdrop-blur-xl">
+          <h3 class="text-xl font-semibold text-indigo-300 mb-3 text-center">6. Get Featured & Monetize</h3>
+          <p class="text-sm leading-relaxed text-gray-300 text-center font-semibold">Top-rated books are featured on our homepage and social media. Earn revenue through reader engagement, marketplace sales, and premium exposure. Join exclusive author promotions and build your personal brand.</p>
+        </div>
+      </div>
+    </div>
+        
+        
+    
+
+  <!-- Publishing Form -->
+  <section class="w-full bg-cover bg-center py-8 px-8" style="background-image: url('{% static 'blog/images/bk.png' %}');">
+    <section class="max-w-4xl mx-auto px-6 py-12 bg-white/60 rounded-3xl backdrop-filter shadow-lg border border-sky-600 mb-10">
+      <h2 class="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight text-center text-black" style="font-family: 'Orbitron', sans-serif;">Book Publishing Form</h2>
+      <form method="post" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+        <div>
+          <label class="block text-lg font-semibold mb-2 text-black">Book Title</label>
+          <input type="text" name="title" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-cyan-400" required>
+        </div>
+        <div>
+          <label class="block text-lg font-semibold mb-2 text-black">Short Description</label>
+          <textarea name="description" rows="4" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-cyan-400" required></textarea>
+        </div>
+        <div>
+          <label class="block text-lg font-semibold mb-2 text-black">Category</label>
+          <select name="category" class="w-full p-3 rounded-lg bg-gray-800 text-white border border-cyan-400" required>
+            <option>Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Science & Tech</option>
+            <option>Education</option>
+            <option>Art & Culture</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-lg font-semibold mb-2 text-black">Upload Book (PDF)</label>
+          <input type="file" name="book_file" accept="application/pdf" class="w-full text-white" required>
+        </div>
+        <div>
+          <label class="block text-lg font-semibold mb-2 text-black">Upload Cover Image</label>
+          <input type="file" name="cover_image" accept="image/*" class="w-full text-white" required>
+        </div>
+        <div class="text-center mt-6">
+          <button type="submit" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-500 hover:to-cyan-400 text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-xl transition-all duration-300">Submit Book</button>
+        </div>
+      </form>
+    </section>
+  
+      <!-- Author Dashboard Preview -->
+     <div class="max-w-6xl mx-auto text-center bg-black/60 px-6 mb-8 rounded-xl shadow-lg">  
+      <section class="max-w-6xl mx-auto px-12 py-16 mb-8">
+        <h2 class="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-pink-500 mb-10 uppercase tracking-widest drop-shadow-lg text-center">What You Can Do from Your Author Dashboard</h2>
+        <div class="grid md:grid-cols-3 gap-8 text-white">
+          <div class="bg-gray-800/70 p-6 rounded-xl border border-cyan-500 shadow-md">
+            <h3 class="text-xl font-bold text-white-400 mb-3 ">📊 Track Your Books</h3>
+            <p class="text-pink-400 font-semibold text-center ">Get insights on how your books are performing with views, downloads, and reader engagement metrics.</p>
+          </div>
+          <div class="bg-gray-800/70 p-6 rounded-xl border border-cyan-500 shadow-md">
+            <h3 class="text-xl font-bold text-white-400 mb-3">💬 Reader Feedback</h3>
+            <p class="text-indigo-400 font-semibold text-center ">Read and respond to comments, reviews, and connect with your audience directly.</p>
+          </div>
+          <div class="bg-gray-800/70 p-6 rounded-xl border border-cyan-500 shadow-md">
+            <h3 class="text-xl font-semibold text-white-400 mb-3">💰 Earnings & Monetization</h3>
+            <p class="text-red-400 font-semibold text-center ">Track your earnings, marketplace sales, and receive payout reports. Enable monetization settings with ease.</p>
+          </div>
+      
+      </section>
+     </div>
+
+</section>
+</div>
+{% endblock %}

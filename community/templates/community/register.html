@@ -1,0 +1,182 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block body_classes %}bg-slate-950 font-poppins text-white{% endblock %}
+{% block main_classes %}flex-grow{% endblock %}
+
+{% block content %}
+<!-- Fullscreen Background -->
+<div class="min-h-screen bg-cover bg-center relative" style="background-image: url('{% static 'blog/images/frd.png' %}');">
+  
+  <!-- Registration Panel -->
+  <div class="relative z-10 flex flex-col items-center justify-start min-h-screen py-16 px-4">
+    <div class="w-full max-w-5xl bg-white/50 backdrop-blur-2xl shadow-2xl rounded-3xl p-10 space-y-12">
+
+      <!-- Logo & Heading -->
+      <div class="flex items-center space-x-4 justify-center">
+        <img src="{% static 'blog/images/logo.jpg' %}" alt="Logo" class="h-16 w-16 rounded-full shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-900 text-center">Join the Digital Harbour Community</h1>
+      </div>
+      <p class="text-center text-lg text-gray-800">Empower your profile, connect globally, and showcase your impact.</p>
+
+      <!-- Registration Form -->
+      <form method="post" enctype="multipart/form-data" class="space-y-8">
+        {% csrf_token %}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="full_name" class="block text-sm font-medium text-gray-700">Full Name</label>
+            <input type="text" id="full_name" name="full_name" required
+                   class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500">
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+            <input type="email" id="email" name="email" required
+                   class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500">
+          </div>
+
+          <div>
+            <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+            <input type="text" id="username" name="username" required
+                   class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500">
+          </div>
+
+          <div>
+            <label for="profile_image" class="block text-sm font-medium text-gray-700">Profile Image</label>
+            <input type="file" id="profile_image" name="profile_image"
+                   class="mt-1 w-full bg-white border border-gray-300 rounded-lg p-2 file:bg-indigo-600 file:text-white file:px-4 file:py-2 file:rounded-md hover:file:bg-indigo-700">
+          </div>
+
+          <div>
+            <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+            <input type="password" id="password" name="password" required
+                   class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500">
+          </div>
+
+          <div>
+            <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" required
+                   class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-indigo-500">
+          </div>
+        </div>
+
+        <!-- Extended Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-gray-300">
+          <div>
+            <label for="bio" class="block text-sm font-medium text-gray-700">Bio</label>
+            <textarea id="bio" name="bio" rows="3" class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500"
+                      placeholder="Tell us about yourself..."></textarea>
+          </div>
+          <div>
+            <label for="education" class="block text-sm font-medium text-gray-700">Education</label>
+            <textarea id="education" name="education" rows="3" class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500"
+                      placeholder="Degrees, institutions, certifications..."></textarea>
+          </div>
+          <div>
+            <label for="skills" class="block text-sm font-medium text-gray-700">Skills</label>
+            <input type="text" id="skills" name="skills"
+                   class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500"
+                   placeholder="e.g., Python, Writing, Design">
+          </div>
+          <div>
+            <label for="achievements" class="block text-sm font-medium text-gray-700">Achievements</label>
+            <textarea id="achievements" name="achievements" rows="3"
+                      class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500"
+                      placeholder="Awards, recognitions..."></textarea>
+          </div>
+          <div>
+            <label for="certifications" class="block text-sm font-medium text-gray-700">Certifications</label>
+            <textarea id="certifications" name="certifications" rows="3"
+                      class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500"
+                      placeholder="Relevant credentials..."></textarea>
+          </div>
+          <div>
+            <label for="publications" class="block text-sm font-medium text-gray-700">Publications</label>
+            <textarea id="publications" name="publications" rows="3"
+                      class="mt-1 w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500"
+                      placeholder="Blogs, articles, papers..."></textarea>
+          </div>
+        </div>
+
+        <!-- Terms & Submit -->
+        <div class="flex items-center mt-4">
+          <input type="checkbox" id="terms" name="terms" required class="w-4 h-4 text-indigo-600 rounded">
+          <label for="terms" class="ml-2 text-sm text-gray-700">I agree to the
+            <a href="{% url 'privacy_policy' %}" class="text-indigo-700 underline">Privacy Policy</a>
+          </label>
+        </div>
+
+        <button type="submit"
+                class="w-full mt-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white text-lg font-bold rounded-xl transition-all duration-200 shadow-md">
+          🚀 Register & Join the Movement
+        </button>
+
+        <p class="text-center text-sm text-gray-600 mt-4">
+          Already a member? <a href="{% url 'login' %}" class="text-indigo-700 font-semibold underline">Login here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Feature Highlights Section -->
+  <div class="mt-24 w-full max-w-7xl mx-auto bg-gradient-to-r from-indigo-900 to-slate-900 text-white text-center rounded-3xl shadow-2xl p-10">
+    <h2 class="text-4xl font-bold mb-10">🌐 Explore the World of Digital Harbour</h2>
+    <div class="grid md:grid-cols-3 gap-8 text-left">
+
+      <div class="p-6 bg-white/10 rounded-2xl hover:scale-105 transition transform duration-300">
+        <img src="{% static 'blog/images/pdf.png' %}" alt="Write" class="h-30 w-30 mb-4">
+        <h3 class="text-2xl font-semibold text-center">📝 Publish Your Blogs</h3>
+        <p class="text-center mt-2">Showcase your knowledge through engaging articles read by thousands.</p>
+      </div>
+
+      <div class="p-6 bg-white/10 rounded-2xl hover:scale-105 transition transform duration-300">
+        <img src="{% static 'blog/images/bk.png' %}" alt="Books" class="h-30  w-30  mb-4">
+        <h3 class="text-2xl font-semibold text-center">📚 Launch Your Books</h3>
+        <p class="text-center mt-2">Easily publish your books and sell through our marketplace.</p>
+      </div>
+
+      <div class="p-6 bg-white/10 rounded-2xl hover:scale-105 transition transform duration-300">
+        <img src="{% static 'blog/images/frd.png' %}" alt="Community" class="h-30 w-30 mb-4">
+        <h3 class="text-2xl font-semibold text-center">🤝 Join the Community</h3>
+        <p class="text-center mt-2">Collaborate and network with like-minded creators globally.</p>
+      </div>
+
+      <div class="p-6 bg-white/10 rounded-2xl hover:scale-105 transition transform duration-300">
+        <img src="{% static 'blog/images/whitepaper_icon4.png' %}" alt="Whitepapers" class="h-30 w-30 mb-4">
+        <h3 class="text-2xl font-semibold text-center">📄 Publish Whitepapers</h3>
+        <p class="text-center mt-2">Reach a global audience with your research and innovation.</p>
+      </div>
+
+      <div class="p-6 bg-white/10 rounded-2xl hover:scale-105 transition transform duration-300">
+        <img src="{% static 'blog/images/marketplace.png' %}" alt="Marketplace" class="h-30 w-30 mb-4">
+        <h3 class="text-2xl font-semibold text-center">🛒 Marketplace</h3>
+        <p class="text-center mt-2">Sell eBooks, digital goods, and merchandise on our platform.</p>
+      </div>
+
+      <div class="p-6 bg-white/10 rounded-2xl hover:scale-105 transition transform duration-300">
+        <img src="{% static 'blog/images/naavik.png' %}" alt="Naavik" class="h-30 w-30 mb-4">
+        <h3 class="text-2xl font-semibold text-center">🚢 Naavik</h3>
+        <p class="text-center mt-2">Explore our career counseling platform, including maritime and STEM guidance.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+    <!-- Final Section with New Background -->
+    <div class="w-full mt-24 bg-cover bg-center rounded-3xl shadow-xl"
+         style="background-image: url('{% static 'blog/images/bgfooter.jpg' %}');">
+      <div class="bg-indigo-900/70 backdrop-blur-sm p-12 rounded-3xl text-center text-white space-y-6">
+        <h2 class="text-4xl font-bold">Be Part of the Future</h2>
+        <p class="text-lg">With AI-powered suggestions, global reach, and a collaborative ecosystem, Digital Harbour is where innovators thrive.</p>
+        <a href="{% url 'register' %}"
+           class="inline-block px-8 py-3 bg-white text-indigo-800 font-bold text-lg rounded-lg hover:bg-indigo-200 transition-all duration-300">
+          Create Your Free Profile Now
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Author Dashboard{% endblock %}
+
+{% block content %}
+<section style="padding: 30px;">
+    <h1>Your Dashboard</h1>
+
+    <h2>Your Blogs</h2>
+    {% for blog in blogs %}
+        <div>
+            <h3>{{ blog.title }}</h3>
+            <p>Status: {% if blog.published %}Published{% else %}Pending{% endif %}</p>
+        </div>
+    {% empty %}
+        <p>No blogs yet.</p>
+    {% endfor %}
+
+    <h2>Your Library Uploads</h2>
+    {% for item in library_items %}
+        <div>
+            <h3>{{ item.title }}</h3>
+        </div>
+    {% empty %}
+        <p>No uploads yet.</p>
+    {% endfor %}
+</section>
+{% endblock %}

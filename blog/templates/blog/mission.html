@@ -1,0 +1,145 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}Our Mission{% endblock %}
+
+{% block body_classes %}bg-black text-white font-poppins{% endblock %}
+{% block main_classes %}px-0 py-0{% endblock %}
+
+{% block content %}
+
+<section class="w-full bg-cover bg-center bg-no-repeat bg-fixed py-24 px-4" style="background-image: url('{% static 'blog/images/uth.jpg' %}');">
+  <div class="bg-black/60 rounded-xl p-10 max-w-6xl mx-auto shadow-xl">
+    <h1 class="text-6xl font-extrabold text-center text-lime-300 font-orbitron tracking-wide mb-4">🌟 Our Mission</h1>
+    <p class="text-center text-2xl text-lime-200 mb-10 font-semibold">Empower. Create. Connect.</p>
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <img src="{% static 'blog/images/mission_main.png' %}" class="w-72 h-80 rounded-xl shadow-lg" alt="Mission Image">
+      <p class="text-xl leading-relaxed text-gray-200 text-center md:text-left bg-gradient-to-r from-lime-400 to-green-300 bg-clip-text text-transparent">
+        At <strong>Digital Harbour</strong>, we are shaping the future of digital creativity by empowering creators, innovators, and thinkers. Our platform is designed to foster talent, fuel innovation, and provide the tools necessary to make your digital journey successful.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="bg-black/20 rounded-xl p-10 max-w-6xl mx-auto shadow-xl">
+  <h1 class="text-6xl font-extrabold text-center text-lime-300 font-orbitron tracking-wide mb-4">🌟 services offered</h1>
+</div>
+
+<section class="py-16 bg-gradient-to-r from-gray-900 to-black">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2 flex justify-center">
+      <img src="{% static 'blog/images/author_panel.png' %}" class="w-72 h-72 rounded-xl shadow-lg" alt="Author Panel">
+    </div>
+    <div class="md:w-1/2">
+      <a href="{% url 'author_dashboard' %}"><h2 class="text-4xl font-extrabold text-pink-400 mb-4 font-orbitron hover:underline text-center">✍️ Author Panel</h2></a>
+      <ul class="list-disc text-gray-300 text-lg space-y-2 text-center">
+        <li>Create, edit, and manage your articles</li>
+        <li>Track views, likes, and feedback</li>
+        <li>Schedule posts and collaborate</li>
+        <li>Access writing tools and analytics</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gradient-to-r from-green-950 to-gray-900">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2">
+      <a href="{% url 'community' %}"><h2 class="text-4xl font-bold text-yellow-300 mb-6 font-orbitron hover:underline text-center">🌐 Creative Community</h2></a>
+      <ul class="list-disc text-gray-300 text-lg space-y-2 text-center">
+        <li>Peer content feedback</li>
+        <li>Creator meetups & contests</li>
+        <li>Community spotlight</li>
+        <li>Moderator support</li>
+      </ul>
+    </div>
+    <div class="md:w-1/2 flex justify-center">
+      <img src="{% static 'blog/images/community_image.jpg' %}" class="w-72 h-72 rounded-xl shadow-lg" alt="Community">
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gradient-to-r from-indigo-950 to-gray-950">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2 flex justify-center">
+      <img src="{% static 'blog/images/expert_blog.png' %}" class="w-72 h-72 rounded-xl shadow-lg" alt="Expert Blogs">
+    </div>
+    <div class="md:w-1/2">
+      <a href="{% url 'blog_list' %}"><h2 class="text-4xl font-bold text-green-400 mb-6 font-orbitron hover:underline text-center">📚 Expert Blogs & Insights</h2></a>
+      <ul class="list-disc text-gray-300 text-lg space-y-2 text-center">
+        <li>Weekly knowledge updates</li>
+        <li>Share your insights</li>
+        <li>Trending recognition</li>
+        <li>Follow experts & comment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gradient-to-r from-blue-950 to-gray-900">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2">
+      <a href="{% url 'library' %}"><h2 class="text-4xl font-bold text-blue-300 mb-6 font-orbitron hover:underline text-center">📖 Digital Library</h2></a>
+      <ul class="list-disc text-gray-300 text-lg space-y-2 text-center">
+        <li>Free and premium eBooks</li>
+        <li>Filter by category & tags</li>
+        <li>Download or read online</li>
+        <li>Bookmark and share</li>
+      </ul>
+    </div>
+    <div class="md:w-1/2 flex justify-center">
+      <img src="{% static 'blog/images/bk.png' %}" class="w-72 h-72 rounded-xl shadow-lg" alt="Library">
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gradient-to-r from-fuchsia-950 to-black">
+  <div class="max-w-6xl mx-auto px-4">
+    <a href="{% url 'publish_book' %}"><h2 class="text-4xl font-bold text-fuchsia-400 mb-6 font-orbitron hover:underline text-center">📝 Publish Articles & Books</h2></a>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <img src="{% static 'blog/images/revenue_icon.png' %}" class="w-full h-80 rounded-lg mb-4" alt="Articles">
+        <h3 class="text-2xl font-semibold text-lime-300 mb-2 text-center">Publish Articles</h3>
+        <ul class="list-disc text-gray-300 text-lg space-y-1 text-center">
+          <li>Custom templates</li>
+          <li>SEO optimization</li>
+          <li>Social sharing</li>
+        </ul>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-lg shadow-lg">
+        <img src="{% static 'blog/images/publish_book.webp' %}" class="w-full h-80 rounded-lg mb-4" alt="Books">
+        <h3 class="text-2xl font-semibold text-lime-300 mb-2 text-center">Publish Books</h3>
+        <ul class="list-disc text-gray-300 text-lg space-y-1 text-center">
+          <li>ISBN & copyright</li>
+          <li>Author pages</li>
+          <li>Track sales & insights</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-16 bg-gradient-to-r from-cyan-950 to-gray-950">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center gap-10">
+    <div class="md:w-1/2 flex justify-center">
+      <img src="{% static 'blog/images/csd.jpg' %}" class="w-72 h-72 rounded-xl shadow-lg" alt="Profile">
+    </div>
+    <div class="md:w-1/2">
+      <a href="{% url 'author_profile_setup' %}"><h2 class="text-4xl font-bold text-cyan-300 mb-6 font-orbitron hover:underline text-center">👤 whitepapers</h2></a>
+      <ul class="list-disc text-gray-300 text-lg space-y-2  text-center">
+        <li>What Are Whitepapers?</li>
+        <li>Why They Matter Today</li>
+        <li>Structure of Whitepapers</li>
+        <li>Who Should Write Them?</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="bg-black py-16 px-6 lg:px-20">
+  <blockquote class="text-xl text-lime-300 text-center font-semibold italic max-w-4xl mx-auto">
+    “Empowering individuals to turn their ideas into impact — that’s not just a slogan, it’s our everyday mission at Digital Harbour.”
+  </blockquote>
+</section>
+
+{% endblock %}
