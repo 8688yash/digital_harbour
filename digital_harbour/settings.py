@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-z$cd(3@^mc=32t8-gwapuj_a^vv+*n@e5eq%h%5w*(a3f89l8c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['digital-harbour.onrender.com', 'localhost']
 
-
+ 
 # Application definition
 
 INSTALLED_APPS = [
@@ -52,12 +52,15 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
 ]
 
 ROOT_URLCONF = 'digital_harbour.urls'
@@ -163,3 +166,4 @@ CHANNEL_LAYERS = {
 }
 
 LOGIN_REDIRECT_URL = '/dashboard/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
