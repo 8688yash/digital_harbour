@@ -1,0 +1,251 @@
+/* General Style */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: #151538;
+    padding: 20px 0;
+}
+
+header h1 a {
+    color: #0ff;
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+header nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #0ff;
+}
+
+/* Main */
+main {
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #0a0a23;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* Titles Hover */
+h1, h2, h3, h4 {
+    transition: 0.4s ease;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover {
+    color: #00ffff;
+    cursor: pointer;
+}
+
+/* Buttons */
+button {
+    background-color: #0ff;
+    color: #0a0a23;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #00cccc;
+}
+
+/* Freebies Section Style */
+.freebies-card {
+    background: #1a1a2e;
+    border: 1px solid #00ffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    background-color: #0d0b2d; /* background like your current one */
+    color: white;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 220px;
+    background-color: #111133;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: white;
+    padding: 12px 20px;
+    margin: 5px 0;
+    display: block;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #00ffff;
+    color: #111133;
+}
+
+/* Link groups */
+.top-links {
+    display: flex;
+    flex-direction: column;
+}
+.bottom-links {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 240px; /* Space for sidebar */
+    padding: 20px;
+}
+
+/* Make Image Smaller and Centered */
+.hero-image img {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* style.css */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Animations */
+  .animate-fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .animate-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Navbar hover underline */
+  nav a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: cyan;
+    left: 0;
+    bottom: 0;
+    transition: 0.3s ease;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  /* Footer styles */
+  footer {
+    background-color: #111827;
+    color: white;
+    padding: 40px 0;
+  }
+  
+  footer .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  footer a {
+    color: #9CA3AF;
+    transition: color 0.3s ease;
+  }
+  
+  footer a:hover {
+    color: cyan;
+  }
+  
+  /* Social icons */
+  .footer-socials a {
+    margin-right: 1rem;
+    display: inline-block;
+    font-size: 1.5rem;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #6B7280;
+  }
+
+  <section class="py-20 bg-center bg-no-repeat" style="
+    background-image: url('{% static 'blog/images/bg-subscribe.png' %}');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+">

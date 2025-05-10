@@ -1,80 +1,162 @@
-{% extends 'blog/base.html' %}
+{% extends "blog/base.html" %}
 {% load static %}
+
+{% block body_classes %}bg-gray-100 font-sans antialiased{% endblock %}
+{% block main_classes %}flex-grow px-4 py-8{% endblock %}
+
+{% block title %}Author Dashboard{% endblock %}
+
 {% block content %}
-<div class="min-h-screen bg-gradient-to-br from-white to-blue-50 font-poppins">
-  <!-- NAVIGATION BAR -->
-  <nav class="bg-white shadow-lg fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center">
-    <div class="text-xl font-bold text-blue-700 tracking-wide">Author Dashboard</div>
-    <div class="space-x-4 text-sm text-gray-600">
-      <a href="{% url 'create_article' %}" class="hover:text-blue-700">Create Article</a>
-      <a href="{% url 'publish_book' %}" class="hover:text-blue-700">Publish Book</a>
+    <div class="container mx-auto">
+        <h1 class="text-3xl font-bold text-blue-700 text-center mb-8">Welcome to Your Author Dashboard</h1>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <div class="flex items-center space-x-6">
+                <div class="w-20 h-20 rounded-full overflow-hidden">
+                    <img src="https://via.placeholder.com/150" alt="Author Profile" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-800">Your Profile</h2>
+                    <p class="text-gray-600">Welcome, [Author Name]!</p>
+                    <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Edit Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Publishing Options</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+                    <h3 class="text-xl font-semibold text-white mb-4">Publish a Book</h3>
+                    <p class="text-gray-100 mb-4">Share your in-depth knowledge and stories with the world.</p>
+                    <a href="#" class="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 inline-block">Get Started</a>
+                </div>
+                <div class="bg-gradient-to-r from-green-500 to-teal-500 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+                    <h3 class="text-xl font-semibold text-white mb-4">Write an Article</h3>
+                    <p class="text-gray-100 mb-4">Contribute your expertise to our growing collection of articles.</p>
+                    <a href="#" class="bg-white text-green-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 inline-block">Write Now</a>
+                </div>
+                <div class="bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:scale-105">
+                    <h3 class="text-xl font-semibold text-white mb-4">Submit a Whitepaper</h3>
+                    <p class="text-gray-100 mb-4">Publish your research and insights in a professional whitepaper.</p>
+                    <a href="#" class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-200 inline-block">Submit</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Earnings Overview</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Total Earnings</h3>
+                    <p class="text-3xl font-bold text-green-600">$[Total Earnings]</p> </div>
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Payout History</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full leading-normal shadow-md rounded-lg overflow-hidden">
+                            <thead class="bg-gray-200 text-gray-700">
+                                <tr>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">
+                                        Date
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">
+                                        Amount
+                                    </th>
+                                    <th class="px-5 py-3 border-b-2 border-gray-200 text-left text-xs font-semibold uppercase tracking-wider">
+                                        Status
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr>
+                                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                        [Date 1]
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                        $[Amount 1]
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                        Paid
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                        [Date 2]
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                        $[Amount 2]
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 text-sm">
+                                        Pending
+                                    </td>
+                                </tr>
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">My Publications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow duration-200 flex flex-col">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">[Publication Title]</h3>
+                    <p class="text-gray-600 text-sm mb-2">Type: [Book/Article/Whitepaper]</p>
+                     <p class="text-gray-600 text-sm mb-2">Status: [Published/Draft/Pending]</p>
+                    <p class="text-gray-700 flex-grow mb-4">[Short Description or Excerpt]</p>
+                    <div class="mt-auto flex justify-end space-x-2">
+                        <a href="#" class="text-blue-500 hover:underline text-sm">View</a>
+                        <a href="#" class="text-green-500 hover:underline text-sm">Edit</a>
+                        <button class="text-red-500 hover:underline text-sm">Delete</button>
+                    </div>
+                </div>
+                </div>
+             <div class="mt-6 text-center">
+                <a href="#" class="text-blue-500 hover:underline">View All Publications</a>
+            </div>
+        </section>
+
+
+
+        <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Analytics</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Total Views</h3>
+                    <p class="text-3xl font-bold text-blue-600">[Total Views]</p>  <div class="mt-4 bg-gray-100 rounded-md p-4">
+                         [View Graph Placeholder]
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-medium text-gray-700 mb-2">Downloads</h3>
+                    <p class="text-3xl font-bold text-green-600">[Total Downloads]</p> <div class="mt-4 bg-gray-100 rounded-md p-4">
+                         [Download Graph Placeholder]
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-6">Resources and Support</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="border rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+                    <h3 class="text-lg font-medium text-blue-700 mb-2">Help Center</h3>
+                    <p class="text-gray-600 text-sm mb-4">Find answers to common questions and get support.</p>
+                    <a href="#" class="text-blue-500 hover:underline text-sm">Visit Help Center</a>
+                </div>
+                <div class="border rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+                    <h3 class="text-lg font-medium text-blue-700 mb-2">Author Guidelines</h3>
+                    <p class="text-gray-600 text-sm mb-4">Learn about our publishing standards and best practices.</p>
+                    <a href="#" class="text-blue-500 hover:underline text-sm">View Guidelines</a>
+                </div>
+                <div class="border rounded-md p-4 hover:shadow-md transition-shadow duration-200">
+                    <h3 class="text-lg font-medium text-blue-700 mb-2">Community Forum</h3>
+                    <p class="text-gray-600 text-sm mb-4">Connect with other authors and share your experiences.</p>
+                    <a href="#" class="text-blue-500 hover:underline text-sm">Join Forum</a>
+                </div>
+            </div>
+        </section>
+
     </div>
-  </nav>
-
-  <!-- DASHBOARD CONTENT -->
-  <div class="pt-24 px-6 max-w-7xl mx-auto space-y-10">
-    <!-- WELCOME BOX -->
-    <div class="bg-white shadow-xl rounded-xl p-6 flex flex-col lg:flex-row items-center gap-6">
-      <img src="{% static 'images/author.png' %}" class="w-24 h-24 rounded-full border-4 border-blue-200" alt="Author">
-      <div>
-        <h2 class="text-2xl font-bold text-blue-700">Welcome, {{ user.username }}</h2>
-        <p class="text-gray-600 mt-2">Ready to inspire the world with your knowledge? Start sharing articles, publishing books, and shaping the future of digital innovation.</p>
-      </div>
-    </div>
-
-    <!-- FEATURES SECTION -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- CREATE ARTICLE -->
-      <a href="{% url 'create_article' %}" class="bg-gradient-to-br from-blue-100 to-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-        <img src="{% static 'images/write.png' %}" class="w-16 mb-4" alt="Create Article">
-        <h3 class="text-xl font-semibold text-blue-800">✍️ Create an Article</h3>
-        <p class="text-sm text-gray-600 mt-2">Write and submit insightful articles on trending topics. Files and images supported.</p>
-      </a>
-
-      <!-- PUBLISH BOOK -->
-      <a href="{% url 'publish_book' %}" class="bg-gradient-to-br from-green-100 to-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-        <img src="{% static 'images/book.png' %}" class="w-16 mb-4" alt="Publish Book">
-        <h3 class="text-xl font-semibold text-green-800">📚 Publish Your Book</h3>
-        <p class="text-sm text-gray-600 mt-2">Got a manuscript? Upload and submit it for publication through Digital Harbour.</p>
-      </a>
-
-      <!-- STATUS OVERVIEW -->
-      <div class="bg-gradient-to-br from-yellow-100 to-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-        <img src="{% static 'images/status.png' %}" class="w-16 mb-4" alt="Status">
-        <h3 class="text-xl font-semibold text-yellow-700">📊 Submission Status</h3>
-        <p class="text-sm text-gray-600 mt-2">Track all submitted articles and books. See what’s approved, pending, or published.</p>
-      </div>
-
-      <!-- COMMUNITY CONTRIBUTIONS -->
-      <div class="bg-gradient-to-br from-purple-100 to-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-        <img src="{% static 'images/community.png' %}" class="w-16 mb-4" alt="Community">
-        <h3 class="text-xl font-semibold text-purple-700">🤝 Collaborate</h3>
-        <p class="text-sm text-gray-600 mt-2">Connect with fellow authors and brainstorm new ideas, formats, and creative content.</p>
-      </div>
-
-      <!-- ACHIEVEMENTS -->
-      <div class="bg-gradient-to-br from-pink-100 to-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-        <img src="{% static 'images/achievement.png' %}" class="w-16 mb-4" alt="Achievements">
-        <h3 class="text-xl font-semibold text-pink-700">🏅 Your Achievements</h3>
-        <p class="text-sm text-gray-600 mt-2">View certificates, badges, and recognitions earned through contributions and impact.</p>
-      </div>
-
-      <!-- SUPPORT PANEL -->
-      <div class="bg-gradient-to-br from-red-100 to-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition">
-        <img src="{% static 'images/support.png' %}" class="w-16 mb-4" alt="Support">
-        <h3 class="text-xl font-semibold text-red-700">🛠️ Help & Support</h3>
-        <p class="text-sm text-gray-600 mt-2">Facing issues? Reach out to our support team or explore the help documentation.</p>
-      </div>
-    </div>
-
-    <!-- NEW USERS SPECIAL PANEL -->
-    {% if not has_published %}
-    <div class="mt-10 bg-blue-50 p-6 rounded-xl border border-blue-300 shadow-inner text-center">
-      <h3 class="text-2xl font-bold text-blue-700 mb-2">🚀 Publish Your First Book</h3>
-      <p class="text-gray-600 mb-4">New to Digital Harbour? Start strong by uploading and submitting your first book now!</p>
-      <a href="{% url 'publish_book' %}" class="inline-block px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">Publish Now</a>
-    </div>
-    {% endif %}
-  </div>
-</div>
 {% endblock %}
